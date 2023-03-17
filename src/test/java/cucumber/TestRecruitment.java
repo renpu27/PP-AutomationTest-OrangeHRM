@@ -13,7 +13,6 @@ import personalproject.pages.RecruitmentPage;
 public class TestRecruitment {
     public static WebDriver driver;
     public static ExtentTest extentTest;
-    public static LoginPage loginPage = new LoginPage();
     public static RecruitmentPage recruitmentPage = new RecruitmentPage();
     public TestRecruitment(){
         driver = Hooks.driver;

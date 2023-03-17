@@ -1,4 +1,5 @@
 Feature: Recruitment HRM
+
   Scenario: Admin go to Recruitment page
     When Admin click menu Recruitment
     Then Admin go to page Recruitment
