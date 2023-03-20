@@ -12,6 +12,7 @@ public class AdminPage {
         this.driver = DriverSingleton.getDriver();
         PageFactory.initElements(driver, this);
     }
+
     @FindBy(xpath = "/html/body/div/div[1]/div[1]/aside/nav/div[2]/ul/li[1]/a")
     WebElement menuAdmin;
 
@@ -38,9 +39,6 @@ public class AdminPage {
 
     @FindBy(xpath = "//button[@type='submit']")
     WebElement btnSave;
-
-    @FindBy(xpath = "//button[normalize-space()='Cancel']")
-    WebElement btnCancel;
 
     @FindBy(xpath = "//div[contains(text(),'Admin2')]")
     WebElement txtAdmin2;
@@ -74,19 +72,21 @@ public class AdminPage {
     public void selectUserRole(){btnUserRole.sendKeys("Admin");
     }
     public void fillEmployeeName(){employeeName.sendKeys("Lisa  Andrews");}
+    public void fillNoEmployeeName(){employeeName.sendKeys("");}
     public void selectStatus(){btnStatus.sendKeys("Enabled");}
     public void fillUsernameAU(){usernameAU.sendKeys("Admin2");}
+    public void fillNoUsernameAU(){usernameAU.sendKeys("");}
     public void fillPasswordAU(){
         passwordAU.sendKeys("Admin_123");
         confirmPasswordAU.sendKeys("Admin_123");
     }
     public void clickBtnSave(){btnSave.click();}
-    public void clickBtnCancel(){btnCancel.click();}
     public void clickJob(){
         btnJob.click();
         btnJobTitle.click();
     }
     public void fillJobTitle(){jobTitle.sendKeys("Manager Test");}
+    public void fillNoJobTitle(){jobTitle.sendKeys("");}
     public void writeJobDesc(){jobDesc.sendKeys("Test");}
     public void writeJobNote(){jobNote.sendKeys("Test");}
 }

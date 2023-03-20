@@ -7,7 +7,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import personalproject.pages.LoginPage;
 import personalproject.pages.RecruitmentPage;
 
 public class TestRecruitment {
@@ -25,7 +24,13 @@ public class TestRecruitment {
         extentTest.log(LogStatus.PASS, "Admin click menu Recruitment");
     }
 
-    @When("Admin click button Add")
+    @When("Admin click button Cancel")
+    public void admin_click_button_cancel(){
+        recruitmentPage.clickBtnCancel();
+        extentTest.log(LogStatus.PASS, "Admin click button Cancel");
+    }
+
+    @And("Admin click button Add")
     public void admin_click_button_add(){
         Hooks.delay(3);
         recruitmentPage.clickBtnAdd();
@@ -36,6 +41,24 @@ public class TestRecruitment {
     public void admin_fill_candidate_name(){
         recruitmentPage.fillName();
         extentTest.log(LogStatus.PASS, "Admin fill candidate Name");
+    }
+
+    @And("Admin empty candidate Name")
+    public void admin_empty_candidate_name(){
+        recruitmentPage.fillNoName();
+        extentTest.log(LogStatus.PASS, "Admin empty candidate Name");
+    }
+
+    @And("Admin empty candidate First Name")
+    public void admin_empty_candidate_firstname(){
+        recruitmentPage.fillNoFirstName();
+        extentTest.log(LogStatus.PASS, "Admin empty candidate First Name");
+    }
+
+    @And("Admin empty candidate Last Name")
+    public void admin_empty_candidate_lastname(){
+        recruitmentPage.fillNoLastName();
+        extentTest.log(LogStatus.PASS, "Admin empty candidate Last Name");
     }
 
     @And("Admin choose Vacancy")
@@ -92,6 +115,12 @@ public class TestRecruitment {
         extentTest.log(LogStatus.PASS,"Admin fill Vacancy Name");
     }
 
+    @And("Admin empty Vacancy Name")
+    public void admin_empty_vacancy_name(){
+        recruitmentPage.fillNoVacName();
+        extentTest.log(LogStatus.PASS,"Admin empty Vacancy Name");
+    }
+
     @And("Admin choose Job Title")
     public void admin_choose_job_title(){
         recruitmentPage.selectJobTitle();
@@ -110,6 +139,18 @@ public class TestRecruitment {
         extentTest.log(LogStatus.PASS,"Admin fill Hiring Manager");
     }
 
+    @And("Admin fill invalid Hiring Manager")
+    public void admin_fill_invalid_hiring_manager(){
+        recruitmentPage.fillInvalidHiring();
+        extentTest.log(LogStatus.PASS,"Admin fill invalid Hiring Manager");
+    }
+
+    @And("Admin empty Hiring Manager")
+    public void admin_empty_hiring_manager(){
+        recruitmentPage.fillNoHiring();
+        extentTest.log(LogStatus.PASS,"Admin empty Hiring Manager");
+    }
+
     @And("Admin fill Number of Positions")
     public void admin_fill_position(){
         recruitmentPage.fillPosNumber();
@@ -126,6 +167,12 @@ public class TestRecruitment {
     public void admin_click_button_publish(){
         recruitmentPage.clickPublish();
         extentTest.log(LogStatus.PASS,"Admin click button Publish in RSS and Web Page");
+    }
+
+    @Then("Admin click button Save")
+    public void admin_click_button_save(){
+        recruitmentPage.clickBtnSave();
+        extentTest.log(LogStatus.PASS, "Admin click button Save");
     }
 
     @Then("Admin go to page Recruitment")
@@ -151,4 +198,17 @@ public class TestRecruitment {
         extentTest.log(LogStatus.PASS, "Admin click button Save vacancies");
     }
 
+    @Then("Admin get alert Required")
+    public void admin_get_alert_Required(){
+        Hooks.delay(3);
+        Assert.assertEquals(recruitmentPage.getTxtRequiredForm(),"Required");
+        extentTest.log(LogStatus.PASS, "Admin get alert Required");
+    }
+
+    @Then("Admin get alert Invalid")
+    public void admin_get_alert_Invalid(){
+        Hooks.delay(3);
+        Assert.assertEquals(recruitmentPage.getTxtInvalidForm(),"Invalid");
+        extentTest.log(LogStatus.PASS, "Admin get alert Invalid");
+    }
 }

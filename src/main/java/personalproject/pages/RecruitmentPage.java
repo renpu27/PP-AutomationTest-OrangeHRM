@@ -14,9 +14,6 @@ public class RecruitmentPage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath="//span[normalize-space()='Recruitment']")
-    WebElement btnRecruitment;
-
     @FindBy(xpath = "//button[normalize-space()='Add']")
     WebElement btnAdd;
 
@@ -89,12 +86,23 @@ public class RecruitmentPage {
     @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[5]/div[1]/div[1]/label[1]/span[1]")
     WebElement btnPublish;
 
+    @FindBy(xpath = "//button[normalize-space()='Cancel']")
+    WebElement btnCancel;
+
     @FindBy(xpath = "//h6[@class='oxd-text oxd-text--h6 orangehrm-main-title']")
     WebElement txtEditVacancy;
+
+    @FindBy(xpath = "//span[normalize-space()='Required']")
+    WebElement txtRequiredForm;
+
+    @FindBy(xpath = "//span[normalize-space()='Invalid']")
+    WebElement txtInvalidForm;
 
     public void goToMenuRecruitment(){
         menuRecruitment.click();
     }
+    public String getTxtRequiredForm(){return txtRequiredForm.getText();}
+    public String getTxtInvalidForm(){return txtInvalidForm.getText();}
     public String getTxtRecruitment(){
         return txtRecruitment.getText();
     }
@@ -108,6 +116,21 @@ public class RecruitmentPage {
         firstName.sendKeys("Yusup");
         middleName.sendKeys("Bin");
         lastName.sendKeys("Sanusi");
+    }
+    public void fillNoName(){
+        firstName.sendKeys("");
+        middleName.sendKeys("");
+        lastName.sendKeys("");
+    }
+    public void fillNoFirstName(){
+        firstName.sendKeys("");
+        middleName.sendKeys("Bin");
+        lastName.sendKeys("Sanusi");
+    }
+    public void fillNoLastName(){
+        firstName.sendKeys("Yusup");
+        middleName.sendKeys("Bin");
+        lastName.sendKeys("");
     }
     public void selectVacancy(){vacancy.sendKeys("Software");}
     public void fillEmailContact(){
@@ -125,13 +148,17 @@ public class RecruitmentPage {
         }
     public void fillNotes(){notes.sendKeys("Test");}
     public void fillVacName(){vacancyName.sendKeys("abcd");}
+    public void fillNoVacName(){vacancyName.sendKeys("");}
     public void selectJobTitle(){jobTitle.sendKeys("Account Assistant");}
     public void fillDescription(){description.sendKeys("Test");}
     public void fillHiring(){hiringManager.sendKeys("Cecil  Bonaparte");}
+    public void fillNoHiring(){hiringManager.sendKeys("");}
+    public void fillInvalidHiring(){hiringManager.sendKeys("Mat Solar");}
     public void fillPosNumber(){numberPositions.sendKeys("2");}
     public void checkConsent(){chkConsent.click();}
     public void clickActive(){btnActive.click();}
     public void clickPublish(){btnPublish.click();}
     public void clickBtnSave(){btnSave.click();}
+    public void clickBtnCancel(){btnCancel.click();}
 
 }

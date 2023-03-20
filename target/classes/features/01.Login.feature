@@ -1,7 +1,14 @@
 Feature: Home Page Test
 
+  Scenario: Open invalid URL
+    When Admin open browser and wrong url
+    Then The site cant be reached
+
+  Scenario: Open valid URL
+    When Admin open right url
+    Then Admin go to login page
+
   Scenario: Admin empty login into web HRM
-    Given Admin open browser and url
     When Admin enter valid username
     And Admin enter no password
     And Admin click button login

@@ -42,6 +42,12 @@ public class TestAdmin {
         extentTest.log(LogStatus.PASS,"Admin fill Employee Name");
     }
 
+    @And("Admin empty Employee Name")
+    public void admin_empty_employeename(){
+        adminPage.fillNoEmployeeName();
+        extentTest.log(LogStatus.PASS,"Admin empty Employee Name");
+    }
+
     @And("Admin click button Status")
     public void admin_click_button_status(){
         adminPage.selectStatus();
@@ -54,14 +60,27 @@ public class TestAdmin {
         extentTest.log(LogStatus.PASS,"Admin fill Username add user");
     }
 
+    @And("Admin empty Username add user")
+    public void admin_empty_usernameAU(){
+        adminPage.fillNoUsernameAU();
+        extentTest.log(LogStatus.PASS,"Admin empty Username add user");
+    }
+
+
     @And("Admin fill Password and Confirm Password add user")
     public void admin_fill_passwordAU(){
         adminPage.fillPasswordAU();
         extentTest.log(LogStatus.PASS,"Admin fill Password and Confirm Password add user");
     }
 
-    @And("Admin fill Job Title")
+    @And("Admin empty Job Title")
     public void admin_fill_job_title(){
+        adminPage.fillNoJobTitle();
+        extentTest.log(LogStatus.PASS,"Admin empty Job Title");
+    }
+
+    @And("Admin fill Job Title")
+    public void admin_empty_job_title(){
         adminPage.fillJobTitle();
         extentTest.log(LogStatus.PASS,"Admin fill Job Title");
     }
@@ -89,7 +108,6 @@ public class TestAdmin {
     public void admin_click_button_saveAU(){
         Hooks.delay(3);
         adminPage.clickBtnSave();
-        adminPage.clickBtnCancel();
         Assert.assertEquals(adminPage.getTxtUserManagement(), "User Management");
         extentTest.log(LogStatus.PASS,"Admin click button Save add user");
     }

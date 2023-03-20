@@ -13,6 +13,9 @@ public class LoginPage {
         PageFactory.initElements(driver, this);
     }
 
+    @FindBy(xpath = "/html/body/div[1]/div[1]/div[2]/p")
+    WebElement txtCantReach;
+
     @FindBy(xpath = "//input[@placeholder='Username']")
     WebElement username;
     @FindBy(xpath = "//input[@placeholder='Password']")
@@ -35,6 +38,7 @@ public class LoginPage {
     @FindBy(xpath = "//a[normalize-space()='Logout']")
     WebElement btnLogout;
 
+    public String getTxtCantReach(){return txtCantReach.getText();}
     public String getLoginTitle(){
         return loginTitle.getText();
     }
@@ -64,9 +68,4 @@ public class LoginPage {
         btnLogout.click();
     }
 
-    public void login(String username, String password){
-        this.username.sendKeys(username);
-        this.password.sendKeys(password);
-        btnLogin.click();
-    }
 }
